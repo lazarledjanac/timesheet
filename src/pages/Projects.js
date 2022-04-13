@@ -1,10 +1,11 @@
 import React from 'react';
+import Content from "../components/Content";
 
 function Projects() {
   return (
-    <div>
-        <h2><i class="ico clients"></i>Projects</h2>
-    </div>
+    <Content>
+        <h2><i class="ico projects"></i>Projects</h2>
+    </Content>
   );
 }
 

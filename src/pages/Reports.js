@@ -1,10 +1,11 @@
 import React from 'react';
+import Content from "../components/Content";
 
 function Reports() {
   return (
-    <div>
-        <h2><i class="ico clients"></i>Reports</h2>
-    </div>
+    <Content>
+        <h2><i class="ico report"></i>Reports</h2>
+    </Content>
   );
 }
 

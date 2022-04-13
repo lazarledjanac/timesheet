@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link,Outlet } from "react-router-dom";
 
 function Header() {
     return (
@@ -33,22 +34,22 @@ function Header() {
           <nav>
             <ul class="menu">
               <li>
-                <a href="index.html" class="btn nav active">TimeSheet</a>
+                <Link to="/timesheet" class="btn nav ">TimeSheet</Link>
               </li>
               <li>
-                <a href="clients.html" class="btn nav">Clients</a>
+                <Link to="/clients"  class="btn nav">Clients</Link>
               </li>
               <li>
-                <a href="projects.html" class="btn nav">Projects</a>
+                <Link to="/projects" class="btn nav">Projects</Link>
               </li>
               <li>
-                <a href="categories.html" class="btn nav">Categories</a>
+                <Link to="/categories" class="btn nav">Categories</Link>
               </li>
               <li>
-                <a href="team-members.html" class="btn nav">Team members</a>
+                <Link to="/members" class="btn nav">Team members</Link>
               </li>
               <li class="last">
-                <a href="reports.html" class="btn nav">Reports</a>
+                <Link to="/reports" class="btn nav">Reports</Link>
               </li>
             </ul>
             <div class="mobile-menu">
@@ -78,7 +79,7 @@ function Header() {
             <span class="line"></span>
             </div>
           </nav>
-        
+          <Outlet/>
         </div>
       </header>
     );

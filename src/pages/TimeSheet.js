@@ -1,10 +1,11 @@
 import React from 'react';
+import Content from "../components/Content";
 
 function TimeSheet() {
   return (
-    <div>
-        <h2><i class="ico clients"></i>TimeSheet</h2>
-    </div>
+    <Content>
+        <h2><i class="ico timesheet"></i>TimeSheet</h2>
+    </Content>
   );
 }
 
