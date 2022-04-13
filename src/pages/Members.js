@@ -1,11 +1,13 @@
-import React from 'react';
-import Content from "../components/Content";
+import React from "react";
+import Layout from "../layout/Layout";
 
 function Members() {
   return (
-    <Content>
-        <h2><i class="ico team-member"></i>Members</h2>
-    </Content>
+    <Layout>
+      <h2>
+        <i class="ico team-member"></i>Members
+      </h2>
+    </Layout>
   );
 }
 

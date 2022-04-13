@@ -11,10 +11,10 @@ function Footer() {
 				</ul>
 				<ul class="right">
 					<li>
-						<a href="javascript:;">Terms of service</a>
+						<a href="https://policies.google.com/terms?hl=en-US">Terms of service</a>
 					</li>
 					<li>
-						<a href="javascript:;" class="last">Privacy policy</a>
+						<a href="https://policies.google.com/privacy?hl=en-US" class="last">Privacy policy</a>
 					</li>
 				</ul>
 			</div>

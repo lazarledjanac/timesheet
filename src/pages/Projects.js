@@ -1,11 +1,13 @@
-import React from 'react';
-import Content from "../components/Content";
+import React from "react";
+import Layout from "../layout/Layout";
 
 function Projects() {
   return (
-    <Content>
-        <h2><i class="ico projects"></i>Projects</h2>
-    </Content>
+    <Layout>
+      <h2>
+        <i class="ico projects"></i>Projects
+      </h2>
+    </Layout>
   );
 }
 

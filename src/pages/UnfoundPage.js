@@ -1,11 +1,11 @@
-import React from 'react';
-import Content from "../components/Content";
+import React from "react";
+import Layout from "../layout/Layout";
 
 function UnfoundPage() {
   return (
-    <Content>
-        <h1 style={{textAlign:"center",marginTop:"190px"}}>Page unfound</h1>
-    </Content>
+    <Layout>
+      <h1 style={{ textAlign: "center", marginTop: "190px" }}>Page unfound</h1>
+    </Layout>
   );
 }
 

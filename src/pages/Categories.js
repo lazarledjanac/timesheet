@@ -1,11 +1,13 @@
-import React from 'react';
-import Content from "../components/Content";
+import React from "react";
+import Layout from "../layout/Layout";
 
 function Categories() {
   return (
-    <Content>
-        <h2><i class="ico categories"></i>Categories</h2>
-    </Content>
+    <Layout>
+      <h2>
+        <i class="ico categories"></i>Categories
+      </h2>
+    </Layout>
   );
 }
 
