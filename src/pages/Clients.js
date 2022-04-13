@@ -3,6 +3,8 @@ import Layout from "../layout/Layout";
 import ClientItem from "../components/ClientItem";
 import CreateClientForm from "../components/CreateClientForm";
 import LetterButtonsContainer from "../components/LetterButtonsContainer";
+import Pagination from "../components/Pagination";
+import GreyBoxWrap from "../components/GreyBoxWrap";
 
 function Clients() {
   return (
@@ -10,14 +12,7 @@ function Clients() {
       <h2>
         <i class="ico clients"></i>Clients
       </h2>
-      <div class="grey-box-wrap reports">
-        <a href="#new-member" class="link new-member-popup">
-          Create new client
-        </a>
-        <div class="search-page">
-          <input type="search" name="search-clients" class="in-search" />
-        </div>
-      </div>
+      <GreyBoxWrap title={" client"} />
       <CreateClientForm />
       <LetterButtonsContainer />
       <div class="accordion-wrap clients">
@@ -25,22 +20,7 @@ function Clients() {
         <ClientItem name={"Clockwork"} />
         <ClientItem name={"Emperor Design"} />
       </div>
-      <div class="pagination">
-        <ul>
-          <li>
-            <a href="javascript:;">1</a>
-          </li>
-          <li>
-            <a href="javascript:;">2</a>
-          </li>
-          <li>
-            <a href="javascript:;">3</a>
-          </li>
-          <li class="last">
-            <a href="javascript:;">Next</a>
-          </li>
-        </ul>
-      </div>
+      <Pagination />
     </Layout>
   );
 }
