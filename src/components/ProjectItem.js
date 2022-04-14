@@ -6,7 +6,7 @@ export default function (props) {
       <div class="heading">
         <span>{props.name}</span>{" "}
         <span>
-          <em>(Nina Media)</em>
+          <em>({props.client})</em>
         </span>
         <i>+</i>
       </div>
@@ -14,12 +14,12 @@ export default function (props) {
         <ul class="form">
           <li>
             <label>Project name:</label>
-            <input type="text" class="in-text" />
+            <input type="text" class="in-text" value={props.name} />
           </li>
           <li>
             <label>Lead:</label>
             <select>
-              <option>Select lead</option>
+              <option>{props.lead}</option>
               <option>Sasa Popovic</option>
               <option>Sladjana Miljanovic</option>
             </select>
@@ -28,14 +28,14 @@ export default function (props) {
         <ul class="form">
           <li>
             <label>Description:</label>
-            <input type="text" class="in-text" />
+            <input type="text" class="in-text" value={props.description} />
           </li>
         </ul>
         <ul class="form last">
           <li>
             <label>Customer:</label>
             <select>
-              <option>Select customer</option>
+              <option>{props.client}</option>
               <option>Adam Software NV</option>
               <option>Clockwork</option>
               <option>Emperor Design</option>

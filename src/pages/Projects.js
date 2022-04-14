@@ -1,6 +1,6 @@
 import React from "react";
 import LetterButtonsContainer from "../components/LetterButtonsContainer";
-import ProjectItem from "../components/ProjectItem";
+import ProjectList from "../components/ProjectList";
 import Layout from "../layout/Layout";
 import CreateProjectForm from "../components/CreateProjectForm";
 import Pagination from "../components/Pagination";
@@ -15,11 +15,7 @@ function Projects() {
       <GreyBoxWrap title={"project"} />
       <CreateProjectForm />
       <LetterButtonsContainer />
-      <div class="accordion-wrap projects">
-        <ProjectItem name={"BuzzMonitor"} />
-        <ProjectItem name={"PWN"} />
-        <ProjectItem name={"B&G"} />
-      </div>
+      <ProjectList />
       <Pagination />
     </Layout>
   );
