@@ -5,7 +5,7 @@ function Days() {
   return (
     <Layout>
       <h2>
-        <i class="ico timesheet"></i>Days
+        <i className="ico timesheet"></i>Days
       </h2>
     </Layout>
   );

@@ -5,7 +5,7 @@ function Reports() {
   return (
     <Layout>
       <h2>
-        <i class="ico report"></i>Reports
+        <i className="ico report"></i>Reports
       </h2>
     </Layout>
   );

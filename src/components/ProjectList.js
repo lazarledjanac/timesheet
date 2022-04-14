@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ProjectItem from "../components/ProjectItem";
-import axios from "axios";
+import { getAllProjects } from "../services/projects.service";
 
 export default function ProjectList() {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("../data/projects.json")
-      .then((res) => setProjects(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+  const projects = getAllProjects();
 
   return (
-    <div class="accordion-wrap projects">
+    <div className="accordion-wrap projects">
       {projects.map((project) => (
         <ProjectItem
           name={project.name}

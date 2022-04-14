@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Pagination() {
   return (
-    <div class="pagination">
+    <div className="pagination">
       <ul>
         <li>
           <a href="javascript:;">1</a>
@@ -13,7 +13,7 @@ export default function Pagination() {
         <li>
           <a href="javascript:;">3</a>
         </li>
-        <li class="last">
+        <li className="last">
           <a href="javascript:;">Next</a>
         </li>
       </ul>

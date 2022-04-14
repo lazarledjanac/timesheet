@@ -5,7 +5,7 @@ function Categories() {
   return (
     <Layout>
       <h2>
-        <i class="ico categories"></i>Categories
+        <i className="ico categories"></i>Categories
       </h2>
     </Layout>
   );

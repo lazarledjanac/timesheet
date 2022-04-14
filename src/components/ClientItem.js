@@ -2,26 +2,26 @@ import React from "react";
 
 function ClientItem(props) {
   return (
-    <div class="item">
-      <div class="heading">
+    <div className="item">
+      <div className="heading">
         <span>{props.name}</span>
         <i>+</i>
       </div>
-      <div class="details">
-        <ul class="form">
+      <div className="details">
+        <ul className="form">
           <li>
             <label>Client name:</label>
-            <input type="text" class="in-text" />
+            <input type="text" className="in-text" />
           </li>
           <li>
             <label>Zip/Postal code:</label>
-            <input type="text" class="in-text" />
+            <input type="text" className="in-text" />
           </li>
         </ul>
-        <ul class="form">
+        <ul className="form">
           <li>
             <label>Address:</label>
-            <input type="text" class="in-text" />
+            <input type="text" className="in-text" />
           </li>
           <li>
             <label>Country:</label>
@@ -30,18 +30,18 @@ function ClientItem(props) {
             </select>
           </li>
         </ul>
-        <ul class="form last">
+        <ul className="form last">
           <li>
             <label>City:</label>
-            <input type="text" class="in-text" />
+            <input type="text" className="in-text" />
           </li>
         </ul>
-        <div class="buttons">
-          <div class="inner">
-            <a href="javascript:;" class="btn green">
+        <div className="buttons">
+          <div className="inner">
+            <a href="javascript:;" className="btn green">
               Save
             </a>
-            <a href="javascript:;" class="btn red">
+            <a href="javascript:;" className="btn red">
               Delete
             </a>
           </div>

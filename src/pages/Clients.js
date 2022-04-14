@@ -10,12 +10,12 @@ function Clients() {
   return (
     <Layout>
       <h2>
-        <i class="ico clients"></i>Clients
+        <i className="ico clients"></i>Clients
       </h2>
       <GreyBoxWrap title={" client"} />
       <CreateClientForm />
       <LetterButtonsContainer />
-      <div class="accordion-wrap clients">
+      <div className="accordion-wrap clients">
         <ClientItem name={"ADAM Software NV"} />
         <ClientItem name={"Clockwork"} />
         <ClientItem name={"Emperor Design"} />

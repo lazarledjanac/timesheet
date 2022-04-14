@@ -3,9 +3,7 @@ import React from "react";
 function LetterButton(props) {
   return (
     <li>
-      <a href="javascript:;" value={props.letter}>
-        {props.letter}
-      </a>
+      <a value={props.letter}>{props.letter}</a>
     </li>
   );
 }

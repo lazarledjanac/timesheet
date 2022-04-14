@@ -5,7 +5,7 @@ function Members() {
   return (
     <Layout>
       <h2>
-        <i class="ico team-member"></i>Members
+        <i className="ico team-member"></i>Members
       </h2>
     </Layout>
   );

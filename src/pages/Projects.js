@@ -7,10 +7,12 @@ import Pagination from "../components/Pagination";
 import GreyBoxWrap from "../components/GreyBoxWrap";
 
 function Projects() {
+  // get data
+
   return (
     <Layout>
       <h2>
-        <i class="ico projects"></i>Projects
+        <i className="ico projects"></i>Projects
       </h2>
       <GreyBoxWrap title={"project"} />
       <CreateProjectForm />

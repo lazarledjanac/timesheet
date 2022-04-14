@@ -5,7 +5,7 @@ function TimeSheet() {
   return (
     <Layout>
       <h2>
-        <i class="ico timesheet"></i>TimeSheet
+        <i className="ico timesheet"></i>TimeSheet
       </h2>
     </Layout>
   );

@@ -3,42 +3,42 @@ import { NavLink, Link, Outlet } from "react-router-dom";
 
 function Header() {
   return (
-    <header class="header">
-      <div class="top-bar"></div>
-      <div class="wrapper">
-        <a href="index.html" class="logo">
+    <header className="header">
+      <div className="top-bar"></div>
+      <div className="wrapper">
+        <a href="index.html" className="logo">
           <img src="assets/img/logo.png" alt="VegaITSourcing Timesheet" />
         </a>
-        <ul class="user right">
+        <ul className="user right">
           <li>
             <a href="javascript:;">Sladjana Miljanovic</a>
-            <div class="invisible"></div>
-            <div class="user-menu">
+            <div className="invisible"></div>
+            <div className="user-menu">
               <ul>
                 <li>
-                  <a href="javascript:;" class="link">
+                  <a href="javascript:;" className="link">
                     Change password
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:;" class="link">
+                  <a href="javascript:;" className="link">
                     Settings
                   </a>
                 </li>
                 <li>
-                  <a href="javascript:;" class="link">
+                  <a href="javascript:;" className="link">
                     Export all data
                   </a>
                 </li>
               </ul>
             </div>
           </li>
-          <li class="last">
+          <li className="last">
             <a href="javascript:;">Logout</a>
           </li>
         </ul>
         <nav>
-          <ul class="menu">
+          <ul className="menu">
             <li>
               <NavLink
                 to="/timesheet"
@@ -95,9 +95,9 @@ function Header() {
               </NavLink>
             </li>
           </ul>
-          <div class="mobile-menu">
-            <a href="javascript:;" class="menu-btn">
-              <i class="zmdi zmdi-menu"></i>
+          <div className="mobile-menu">
+            <a href="javascript:;" className="menu-btn">
+              <i className="zmdi zmdi-menu"></i>
             </a>
             <ul>
               <li>
@@ -115,11 +115,11 @@ function Header() {
               <li>
                 <a href="javascript:;">Team members</a>
               </li>
-              <li class="last">
+              <li className="last">
                 <a href="javascript:;">Reports</a>
               </li>
             </ul>
-            <span class="line"></span>
+            <span className="line"></span>
           </div>
         </nav>
         <Outlet />
