@@ -6,35 +6,29 @@ function Header() {
     <header className="header">
       <div className="top-bar"></div>
       <div className="wrapper">
-        <a href="index.html" className="logo">
+        <Link to="/timesheet" className="logo">
           <img src="assets/img/logo.png" alt="VegaITSourcing Timesheet" />
-        </a>
+        </Link>
         <ul className="user right">
           <li>
-            <a href="javascript:;">Sladjana Miljanovic</a>
+            <a>Lazar Ledjanac</a>
             <div className="invisible"></div>
             <div className="user-menu">
               <ul>
                 <li>
-                  <a href="javascript:;" className="link">
-                    Change password
-                  </a>
+                  <a className="link">Change password</a>
                 </li>
                 <li>
-                  <a href="javascript:;" className="link">
-                    Settings
-                  </a>
+                  <a className="link">Settings</a>
                 </li>
                 <li>
-                  <a href="javascript:;" className="link">
-                    Export all data
-                  </a>
+                  <a className="link">Export all data</a>
                 </li>
               </ul>
             </div>
           </li>
           <li className="last">
-            <a href="javascript:;">Logout</a>
+            <a>Logout</a>
           </li>
         </ul>
         <nav>
@@ -68,15 +62,6 @@ function Header() {
             </li>
             <li>
               <NavLink
-                to="/categories"
-                className="btn nav"
-                activeClassName="active"
-              >
-                Categories
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
                 to="/members"
                 className="btn nav"
                 activeClassName="active"
@@ -96,27 +81,27 @@ function Header() {
             </li>
           </ul>
           <div className="mobile-menu">
-            <a href="javascript:;" className="menu-btn">
+            <a className="menu-btn">
               <i className="zmdi zmdi-menu"></i>
             </a>
             <ul>
               <li>
-                <a href="javascript:;">TimeSheet</a>
+                <a>TimeSheet</a>
               </li>
               <li>
-                <a href="javascript:;">Clients</a>
+                <a>Clients</a>
               </li>
               <li>
-                <a href="javascript:;">Projects</a>
+                <a>Projects</a>
               </li>
               <li>
-                <a href="javascript:;">Categories</a>
+                <a>Categories</a>
               </li>
               <li>
-                <a href="javascript:;">Team members</a>
+                <a>Team members</a>
               </li>
               <li className="last">
-                <a href="javascript:;">Reports</a>
+                <a>Reports</a>
               </li>
             </ul>
             <span className="line"></span>
