@@ -11,7 +11,7 @@ function Header() {
         </Link>
         <ul className="user right">
           <li>
-            <a>Lazar Ledjanac</a>
+            <a>Лазар Леђанац</a>
             <div className="invisible"></div>
             <div className="user-menu">
               <ul>
