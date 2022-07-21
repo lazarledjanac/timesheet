@@ -16,13 +16,14 @@ export const projectSlice = createSlice({
         (project) => project.id !== action.payload.id
       );
     },
-    updateProject: (state, action) => {
+    updateProject: (state, { payload }) => {
+      const { id, name, description, client, lead } = payload;
       state.value.map((project) => {
-        if (project.id === action.payload.id) {
-          project.name = action.payload.projectName;
-          project.description = action.payload.description;
-          project.client = action.payload.client;
-          project.lead = action.payload.lead;
+        if (project.id === id) {
+          project.name = name;
+          project.description = description;
+          project.client = client;
+          project.lead = lead;
         }
       });
     },

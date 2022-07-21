@@ -13,8 +13,6 @@ const Project = ({ id, key }) => {
 
   const project = projectList.find((project) => project.id === id);
   const { name, description, client, lead } = project;
-  const [projectname, setprojectname] = useState(name);
-  const [desc, setDesc] = useState(description);
   const {
     register,
     handleSubmit,
@@ -25,11 +23,11 @@ const Project = ({ id, key }) => {
     const { name, description, client, lead } = data;
     dispatch(
       updateProject({
-        id: id,
-        projectName: name,
-        description: description,
-        client: client,
-        lead: lead,
+        id,
+        name,
+        description,
+        client,
+        lead,
       })
     );
     setItemClass("item");
@@ -42,7 +40,7 @@ const Project = ({ id, key }) => {
   return (
     <div className={itemClass}>
       <div className="heading" onClick={itemClassToggle}>
-        <span>{name + id}</span>
+        <span>{name}</span>
       </div>
       <div className="details">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -54,15 +52,11 @@ const Project = ({ id, key }) => {
                   Project name:
                   <em style={{ color: "#f67d34" }}>*</em>
                 </label>
-                <div key={projectname}>
+                <div>
                   <input
                     type="text"
                     className="in-text"
-                    name={projectname}
-                    defaultValue={projectname}
-                    onChange={(e) => {
-                      setprojectname(e.target.value);
-                    }}
+                    defaultValue={name}
                     style={{ marginBottom: 15 }}
                     {...register("name", {
                       required: true,
@@ -105,10 +99,7 @@ const Project = ({ id, key }) => {
                 <input
                   type="text"
                   className="in-text"
-                  defaultValue={desc}
-                  onChange={(e) => {
-                    setDesc(e.target.value);
-                  }}
+                  defaultValue={description}
                   style={{ marginBottom: 15 }}
                   {...register("description")}
                 />
