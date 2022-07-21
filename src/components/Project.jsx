@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteProject, updateProject } from "../features/Projects";
 
-const Project = ({ id, key }) => {
+const Project = ({ id }) => {
   const dispatch = useDispatch();
 
   const clientList = useSelector((state) => state.clients.value);
@@ -13,6 +13,7 @@ const Project = ({ id, key }) => {
 
   const project = projectList.find((project) => project.id === id);
   const { name, description, client, lead } = project;
+
   const {
     register,
     handleSubmit,
