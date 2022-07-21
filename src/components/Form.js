@@ -122,7 +122,10 @@ export default function Form({ isProject, isClient, isMember, close }) {
 
             <br />
             <label>Country:</label>
-            <select style={{ marginBottom: 15 }} {...register("country")}>
+            <select
+              style={{ marginBottom: 10 }}
+              {...register("country", { required: true })}
+            >
               <option value="">Select country</option>
               {countries.map((country, index) => (
                 <option value={country.name} key={index}>
@@ -130,6 +133,12 @@ export default function Form({ isProject, isClient, isMember, close }) {
                 </option>
               ))}
             </select>
+            {errors.country && (
+              <p style={{ color: "red" }}>
+                Country name field must not be blank
+              </p>
+            )}
+            <br />
             <ButtonContainer>
               <button type="submit" className="btn green">
                 Create

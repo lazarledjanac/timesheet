@@ -3,8 +3,8 @@ import {
   LetterButtonsContainer,
   Pagination,
   Modal,
-  Details,
   Form,
+  Client,
 } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllClients } from "../features/Clients";
@@ -89,15 +89,8 @@ function Clients() {
 
       <LetterButtonsContainer onSetLetter={(letter) => setLetter(letter)} />
       <div className="accordion-wrap projects">
-        {clientList.map((client, index) => (
-          <Details
-            id={client.id}
-            client={client.name}
-            address={client.address}
-            city={client.city}
-            postalCode={client.postalCode}
-            key={index}
-          />
+        {clientList.map((client) => (
+          <Client id={client.id} key={client.id} />
         ))}
       </div>
       <Pagination

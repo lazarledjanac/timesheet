@@ -38,13 +38,12 @@ const Project = ({ id, key }) => {
   };
 
   return (
-    <div className={itemClass}>
+    <div className={itemClass} key={key}>
       <div className="heading" onClick={itemClassToggle}>
         <span>{name}</span>
       </div>
       <div className="details">
         <form onSubmit={handleSubmit(onSubmit)}>
-          {" "}
           <div>
             <ul className="form">
               <li>

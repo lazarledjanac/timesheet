@@ -16,14 +16,15 @@ export const clientSlice = createSlice({
         (client) => client.id !== action.payload.id
       );
     },
-    updateClient: (state, action) => {
+    updateClient: (state, { payload }) => {
+      const { id, name, address, city, postalCode, country } = payload;
       state.value.map((client) => {
-        if (client.id === action.payload.id) {
-          client.name = action.payload.clientName;
-          client.address = action.payload.address;
-          client.city = action.payload.city;
-          client.postalCode = action.payload.postalCode;
-          client.country = action.payload.country;
+        if (client.id === id) {
+          client.name = name;
+          client.address = address;
+          client.city = city;
+          client.postalCode = postalCode;
+          client.country = country;
         }
       });
     },

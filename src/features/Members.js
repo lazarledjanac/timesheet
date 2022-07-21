@@ -16,27 +16,28 @@ export const memberSlice = createSlice({
         (member) => member.id !== action.payload.id
       );
     },
-    updateMember: (state, action) => {
+    updateMember: (state, { payload }) => {
+      const { id, name, hoursPerWeek, userName, email } = payload;
       state.value.map((member) => {
-        if (member.id === action.payload.id) {
-          member.name = action.payload.memberName;
-          member.hoursPerWeek = action.payload.hoursPerWeek;
-          member.userName = action.payload.userName;
-          member.email = action.payload.email;
+        if (member.id === id) {
+          member.name = name;
+          member.hoursPerWeek = hoursPerWeek;
+          member.userName = userName;
+          member.email = email;
           //   member.status = action.payload.status;
           //   member.role = action.payload.role;
         }
       });
     },
-    getAllMembers: (state, action) => {
-      if (state.value.length > action.payload.pageSize) {
-        const firstPageIndex =
-          (action.payload.currentPage - 1) * action.payload.pageSize;
-        const lastPageIndex = firstPageIndex + action.payload.pageSize;
+    // getAllMembers: (state, action) => {
+    //   if (state.value.length > action.payload.pageSize) {
+    //     const firstPageIndex =
+    //       (action.payload.currentPage - 1) * action.payload.pageSize;
+    //     const lastPageIndex = firstPageIndex + action.payload.pageSize;
 
-        state.value = state.value.slice(firstPageIndex, lastPageIndex);
-      }
-    },
+    //     state.value = state.value.slice(firstPageIndex, lastPageIndex);
+    //   }
+    // },
   },
 });
 export const { addMember, deleteMember, updateMember, getAllMembers } =

@@ -1,5 +1,4 @@
 export { default as ButtonContainer } from "./ButtonContainer";
-export { default as Details } from "./Details";
 export { default as Dropdown } from "./Dropdown";
 export { default as ExportCSV } from "./ExportCSV";
 export { default as Form } from "./Form";
@@ -17,3 +16,5 @@ export { default as Weekday } from "../components/calendarcomps/Weekday";
 export { default as ListOfReports } from "../components/reportscomps/ListOfReports";
 export { default as Report } from "../components/reportscomps/Report";
 export { default as Project } from "../components/Project";
+export { default as Client } from "../components/Client";
+export { default as Member } from "../components/Member";

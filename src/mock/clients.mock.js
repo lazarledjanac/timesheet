@@ -5,7 +5,7 @@ export const clientsMock = [
     address: "Futoski put 245",
     city: "Novi Sad",
     postalCode: "11000",
-    country: "Software product",
+    country: "Serbia",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const clientsMock = [
     address: "BB",
     city: "Beograd",
     postalCode: "21000",
-    country: "Software product",
+    country: "Serbia",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const clientsMock = [
     address: "BB",
     city: "Nis",
     postalCode: "17080",
-    country: "Software product",
+    country: "Serbia",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const clientsMock = [
     address: "BB",
     city: "Subotica",
     postalCode: "74080",
-    country: "Software product",
+    country: "Serbia",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const clientsMock = [
     address: "BB",
     city: "Zrenjanin",
     postalCode: "41500",
-    country: "Software product",
+    country: "Serbia",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const clientsMock = [
     address: "BB",
     city: "Leskovac",
     postalCode: "33000",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export const clientsMock = [
     address: "BB",
     city: "Pancevo",
     postalCode: "89660",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export const clientsMock = [
     address: "BB",
     city: "Vranje",
     postalCode: "22400",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export const clientsMock = [
     address: "BB",
     city: "Subotica",
     postalCode: "44555",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ export const clientsMock = [
     address: "BB",
     city: "Nis",
     postalCode: "87880",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ export const clientsMock = [
     address: "BB",
     city: "Vrbas",
     postalCode: "55050",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ export const clientsMock = [
     address: "BB",
     city: "Beograd",
     postalCode: "11000",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 13,
@@ -101,7 +101,7 @@ export const clientsMock = [
     address: "BB",
     city: "Uzice",
     postalCode: "21000",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ export const clientsMock = [
     address: "BB",
     city: "Cacak",
     postalCode: "17080",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 15,
@@ -117,7 +117,7 @@ export const clientsMock = [
     address: "BB",
     city: "Backa Palanka",
     postalCode: "74080",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 16,
@@ -125,7 +125,7 @@ export const clientsMock = [
     address: "BB",
     city: "Novi Sad",
     postalCode: "41500",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 17,
@@ -133,7 +133,7 @@ export const clientsMock = [
     address: "BB",
     city: "Arandjelovac",
     postalCode: "33000",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 18,
@@ -141,7 +141,7 @@ export const clientsMock = [
     address: "BB",
     city: "Loznica",
     postalCode: "89660",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 19,
@@ -149,7 +149,7 @@ export const clientsMock = [
     address: "BB",
     city: "Beograd",
     postalCode: "22400",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 20,
@@ -157,7 +157,7 @@ export const clientsMock = [
     address: "BB",
     city: "Zrenjanin",
     postalCode: "44555",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 21,
@@ -165,7 +165,7 @@ export const clientsMock = [
     address: "BB",
     city: "Pirot",
     postalCode: "87880",
-    country: "Srbija",
+    country: "Serbia",
   },
   {
     id: 22,
@@ -173,6 +173,6 @@ export const clientsMock = [
     address: "BB",
     city: "Negotin",
     postalCode: "55050",
-    country: "Srbija",
+    country: "Serbia",
   },
 ];

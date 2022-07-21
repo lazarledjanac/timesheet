@@ -86,8 +86,8 @@ function Projects() {
       </div>
       <LetterButtonsContainer onSetLetter={(letter) => setLetter(letter)} />
       <div className="accordion-wrap projects">
-        {projectList.map((project, index) => (
-          <Project id={project.id} key={index} />
+        {projectList.map((project) => (
+          <Project id={project.id} key={project.id} />
         ))}
       </div>
       <Pagination
