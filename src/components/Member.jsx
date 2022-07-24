@@ -3,12 +3,11 @@ import ButtonContainer from "./ButtonContainer";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteMember, updateMember } from "../features/Members";
-import { countries } from "../mock/countries.mock";
 
 const Member = ({ id, key }) => {
   const dispatch = useDispatch();
 
-  const memberList = useSelector((state) => state.members.value);
+  const { memberList } = useSelector((state) => state.members);
 
   const member = memberList.find((member) => member.id === id);
   const { name, hoursPerWeek, userName, email } = member;

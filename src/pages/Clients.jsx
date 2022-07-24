@@ -7,13 +7,13 @@ import {
   Client,
 } from "../components";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllClients } from "../features/Clients";
+import { getAllClients, filteredClients } from "../features/Clients";
 
 let pageSize = 6;
 
 function Clients() {
   const dispatch = useDispatch();
-  const clientList = useSelector((state) => state.clients.value);
+  const { clientList, filteredClients } = useSelector((state) => state.clients);
 
   const modalRef = useRef();
   const [currentPage, setCurrentPage] = useState(1);
@@ -89,7 +89,7 @@ function Clients() {
 
       <LetterButtonsContainer onSetLetter={(letter) => setLetter(letter)} />
       <div className="accordion-wrap projects">
-        {clientList.map((client) => (
+        {filteredClients.map((client) => (
           <Client id={client.id} key={client.id} />
         ))}
       </div>

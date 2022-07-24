@@ -1,12 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Modal, Pagination, Member, Form } from "../components";
 import { useSelector, useDispatch } from "react-redux";
+import { getAllMembers } from "../features/Members";
 
-let pageSize = 3;
+let pageSize = 4;
 
 export default function Members() {
   const dispatch = useDispatch();
-  const memberList = useSelector((state) => state.members.value);
+  const { memberList, paginatedMembers } = useSelector(
+    (state) => state.members
+  );
 
   const [numberOfMembers, setNumberOfMembers] = useState(memberList.length);
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,14 +22,14 @@ export default function Members() {
   const closeModal = () => {
     modalRef.current.close();
   };
-  // useEffect(() => {
-  //   dispatch(
-  //     getAllMembers({
-  //       currentPage: currentPage,
-  //       pageSize: pageSize,
-  //     })
-  //   );
-  // }, [currentPage]);
+  useEffect(() => {
+    dispatch(
+      getAllMembers({
+        currentPage: currentPage,
+        pageSize: pageSize,
+      })
+    );
+  }, [currentPage]);
 
   return (
     <>
@@ -39,7 +42,7 @@ export default function Members() {
         </a>
       </div>
       <div className="accordion-wrap">
-        {memberList.map((member) => (
+        {paginatedMembers.map((member) => (
           <Member id={member.id} key={member.id} />
         ))}
       </div>

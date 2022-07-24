@@ -2,23 +2,27 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { projectsMock } from "../mock/projects.mock";
 
-const initialState = projectsMock;
+const initialState = {
+  projectList: projectsMock,
+  paginatedProjects: [],
+  filteredProjects: [],
+};
 
 export const projectSlice = createSlice({
   name: "projects",
-  initialState: { value: initialState },
+  initialState,
   reducers: {
-    addProject: (state, action) => {
-      state.value.push(action.payload);
+    addProject: (state, { payload }) => {
+      state.projectList.push(payload);
     },
-    deleteProject: (state, action) => {
-      state.value = state.value.filter(
-        (project) => project.id !== action.payload.id
+    deleteProject: (state, { payload }) => {
+      state.projectList = state.projectList.filter(
+        (project) => project.id !== payload.id
       );
     },
     updateProject: (state, { payload }) => {
       const { id, name, description, client, lead } = payload;
-      state.value.map((project) => {
+      state.projectList.map((project) => {
         if (project.id === id) {
           project.name = name;
           project.description = description;
@@ -27,28 +31,27 @@ export const projectSlice = createSlice({
         }
       });
     },
-    getAllProjects: (state, action) => {
-      if (action.payload.term) {
-        state.value = initialState;
-        state.value = state.value.filter(
-          (project) =>
-            project.name.toLowerCase().indexOf(action.payload.term) !== -1
+    getAllProjects: (state, { payload }) => {
+      const { currentPage, pageSize, term, letter } = payload;
+      if (state.projectList.length > pageSize) {
+        const firstPageIndex = (currentPage - 1) * pageSize;
+        const lastPageIndex = firstPageIndex + pageSize;
+
+        state.paginatedProjects = state.projectList.slice(
+          firstPageIndex,
+          lastPageIndex
         );
-      } else if (action.payload.letter) {
-        state.value = initialState;
-        state.value = state.value.filter((project) =>
-          project.name.toLowerCase().startsWith(action.payload.letter)
+      }
+      if (term) {
+        state.filteredProjects = state.projectList.filter(
+          (project) => project.name.toLowerCase().indexOf(term) !== -1
+        );
+      } else if (letter) {
+        state.filteredProjects = state.projectList.filter((project) =>
+          project.name.toLowerCase().startsWith(letter)
         );
       } else {
-        state.value = initialState;
-      }
-
-      if (state.value.length > action.payload.pageSize) {
-        const firstPageIndex =
-          (action.payload.currentPage - 1) * action.payload.pageSize;
-        const lastPageIndex = firstPageIndex + action.payload.pageSize;
-
-        // state.value = state.value.slice(firstPageIndex, lastPageIndex);
+        state.filteredProjects = state.paginatedProjects;
       }
     },
   },

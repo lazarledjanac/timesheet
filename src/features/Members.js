@@ -2,23 +2,26 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { membersMock } from "../mock/members.mock";
 
-const initialState = membersMock;
+const initialState = {
+  memberList: membersMock,
+  paginatedMembers: [],
+};
 
 export const memberSlice = createSlice({
   name: "members",
-  initialState: { value: initialState },
+  initialState,
   reducers: {
-    addMember: (state, action) => {
-      state.value.push(action.payload);
+    addMember: (state, { payload }) => {
+      state.memberList.push(payload);
     },
-    deleteMember: (state, action) => {
-      state.value = state.value.filter(
-        (member) => member.id !== action.payload.id
+    deleteMember: (state, { payload }) => {
+      state.memberList = state.memberList.filter(
+        (member) => member.id !== payload.id
       );
     },
     updateMember: (state, { payload }) => {
       const { id, name, hoursPerWeek, userName, email } = payload;
-      state.value.map((member) => {
+      state.memberList.map((member) => {
         if (member.id === id) {
           member.name = name;
           member.hoursPerWeek = hoursPerWeek;
@@ -29,15 +32,18 @@ export const memberSlice = createSlice({
         }
       });
     },
-    // getAllMembers: (state, action) => {
-    //   if (state.value.length > action.payload.pageSize) {
-    //     const firstPageIndex =
-    //       (action.payload.currentPage - 1) * action.payload.pageSize;
-    //     const lastPageIndex = firstPageIndex + action.payload.pageSize;
+    getAllMembers: (state, { payload }) => {
+      const { currentPage, pageSize } = payload;
+      if (state.memberList.length > pageSize) {
+        const firstPageIndex = (currentPage - 1) * pageSize;
+        const lastPageIndex = firstPageIndex + pageSize;
 
-    //     state.value = state.value.slice(firstPageIndex, lastPageIndex);
-    //   }
-    // },
+        state.paginatedMembers = state.memberList.slice(
+          firstPageIndex,
+          lastPageIndex
+        );
+      }
+    },
   },
 });
 export const { addMember, deleteMember, updateMember, getAllMembers } =

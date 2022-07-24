@@ -8,7 +8,7 @@ import { countries } from "../mock/countries.mock";
 const Client = ({ id, key }) => {
   const dispatch = useDispatch();
 
-  const clientList = useSelector((state) => state.clients.value);
+  const { clientList } = useSelector((state) => state.clients);
 
   const client = clientList.find((client) => client.id === id);
   const { name, address, city, postalCode, country } = client;
@@ -98,7 +98,7 @@ const Client = ({ id, key }) => {
                   style={{ marginBottom: 15 }}
                   {...register("country")}
                 >
-                  <option value="">Select country</option>
+                  <option value="">{country}</option>
                   {countries.map((country, index) => (
                     <option value={country.name} key={index}>
                       {country.name}

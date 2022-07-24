@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import DaysListItem from "../calendarcomps/DaysListItem";
+import DaysListItem from "./DaysListItem";
 
 export default function List({ date, totalHours }) {
   const [show, setShow] = useState(true);

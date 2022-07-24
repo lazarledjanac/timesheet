@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import ButtonContainer from "../components/ButtonContainer";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,9 +7,9 @@ import { deleteProject, updateProject } from "../features/Projects";
 const Project = ({ id, key }) => {
   const dispatch = useDispatch();
 
-  const clientList = useSelector((state) => state.clients.value);
-  const memberList = useSelector((state) => state.members.value);
-  const projectList = useSelector((state) => state.projects.value);
+  const { clientList } = useSelector((state) => state.clients);
+  const { memberList } = useSelector((state) => state.members);
+  const { projectList } = useSelector((state) => state.projects);
 
   const project = projectList.find((project) => project.id === id);
   const { name, description, client, lead } = project;

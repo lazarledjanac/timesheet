@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import { useNavigate } from "react-router-dom";
-import TableRow from "../components/calendarcomps/TableRow";
+import TableRow from "../components/TableRow";
 
 export default function TimeSheet() {
   let navigate = useNavigate();

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import ButtonContainer from "../components/ButtonContainer";
 import { countries } from "../mock/countries.mock";
@@ -9,8 +9,8 @@ import { addMember } from "../features/Members";
 
 export default function Form({ isProject, isClient, isMember, close }) {
   const dispatch = useDispatch();
-  const projectList = useSelector((state) => state.projects.value);
-  const clientList = useSelector((state) => state.clients.value);
+  const { projectList } = useSelector((state) => state.projects);
+  const { clientList } = useSelector((state) => state.clients);
   const memberList = useSelector((state) => state.members.value);
 
   const {

@@ -1,5 +1,5 @@
 import React from "react";
-import Report from "../reportscomps/Report";
+import Report from "./Report";
 import { useSelector } from "react-redux";
 
 const ListOfReports = React.forwardRef((props, ref) => {

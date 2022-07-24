@@ -2,23 +2,27 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { clientsMock } from "../mock/clients.mock";
 
-const initialState = clientsMock;
+const initialState = {
+  clientList: clientsMock,
+  paginatedClients: [],
+  filteredClients: [],
+};
 
 export const clientSlice = createSlice({
   name: "clients",
-  initialState: { value: initialState },
+  initialState,
   reducers: {
-    addClient: (state, action) => {
-      state.value.push(action.payload);
+    addClient: (state, { payload }) => {
+      state.clientList.push(payload);
     },
-    deleteClient: (state, action) => {
-      state.value = state.value.filter(
-        (client) => client.id !== action.payload.id
+    deleteClient: (state, { payload }) => {
+      state.clientList = state.clientList.filter(
+        (client) => client.id !== payload.id
       );
     },
     updateClient: (state, { payload }) => {
       const { id, name, address, city, postalCode, country } = payload;
-      state.value.map((client) => {
+      state.clientList.map((client) => {
         if (client.id === id) {
           client.name = name;
           client.address = address;
@@ -28,28 +32,27 @@ export const clientSlice = createSlice({
         }
       });
     },
-    getAllClients: (state, action) => {
-      if (action.payload.term) {
-        state.value = initialState;
-        state.value = state.value.filter(
-          (client) =>
-            client.name.toLowerCase().indexOf(action.payload.term) !== -1
+    getAllClients: (state, { payload }) => {
+      const { currentPage, pageSize, term, letter } = payload;
+      if (state.clientList.length > pageSize) {
+        const firstPageIndex = (currentPage - 1) * pageSize;
+        const lastPageIndex = firstPageIndex + pageSize;
+
+        state.paginatedClients = state.clientList.slice(
+          firstPageIndex,
+          lastPageIndex
         );
-      } else if (action.payload.letter) {
-        state.value = initialState;
-        state.value = state.value.filter((client) =>
-          client.name.toLowerCase().startsWith(action.payload.letter)
+      }
+      if (term) {
+        state.filteredClients = state.clientList.filter(
+          (client) => client.name.toLowerCase().indexOf(term) !== -1
+        );
+      } else if (letter) {
+        state.filteredClients = state.clientList.filter((client) =>
+          client.name.toLowerCase().startsWith(letter)
         );
       } else {
-        state.value = initialState;
-      }
-
-      if (state.value.length > action.payload.pageSize) {
-        const firstPageIndex =
-          (action.payload.currentPage - 1) * action.payload.pageSize;
-        const lastPageIndex = firstPageIndex + action.payload.pageSize;
-
-        state.value = state.value.slice(firstPageIndex, lastPageIndex);
+        state.filteredClients = state.paginatedClients;
       }
     },
   },

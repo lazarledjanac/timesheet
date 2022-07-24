@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ListOfReports from "../components/reportscomps/ListOfReports";
-import { reportsMock } from "../mock/reports.mock";
+import ListOfReports from "../components/ListOfReports";
 import { DateTime } from "luxon";
 import { ExportCSV, PrintComponent, PDF, Dropdown } from "../components";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,9 +7,9 @@ import { getAllReports, filterReports } from "../features/Reports";
 
 function Reports() {
   const dispatch = useDispatch();
-  const clientList = useSelector((state) => state.clients.value);
-  const projectList = useSelector((state) => state.projects.value);
-  const memberList = useSelector((state) => state.members.value);
+  const { clientList } = useSelector((state) => state.clients);
+  const { projectList } = useSelector((state) => state.projects);
+  const { memberList } = useSelector((state) => state.members);
   const reportList = useSelector((state) => state.reports.value);
 
   const [startDate, setStartDate] = useState("");

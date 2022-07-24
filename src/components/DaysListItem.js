@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addReport } from "../../features/Reports";
+import { addReport } from "../features/Reports";
 
 export default function DaysListItem({
   date,
