@@ -1,7 +1,7 @@
 {
   "name": "timesheet",
   "version": "0.1.0",
-  "homepage": "https://lazarledjanac.github.io/timesheet1",
+  "homepage": "https://lazarledjanac.github.io/timesheet",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
