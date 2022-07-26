@@ -3,11 +3,11 @@ import {
   LetterButtonsContainer,
   Pagination,
   Modal,
-  Form,
+  CreateClientForm,
   Client,
 } from "../components";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllClients, filteredClients } from "../features/Clients";
+import { getAllClients } from "../features/Clients";
 
 let pageSize = 6;
 
@@ -102,7 +102,7 @@ function Clients() {
         }}
       />
       <Modal ref={modalRef}>
-        <Form isClient={true} close={closeModal} />
+        <CreateClientForm close={closeModal} />
       </Modal>
     </>
   );

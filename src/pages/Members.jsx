@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Modal, Pagination, Member, Form } from "../components";
+import { Modal, Pagination, Member, CreateMemberForm } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllMembers } from "../features/Members";
 
@@ -56,7 +56,7 @@ export default function Members() {
         }}
       />
       <Modal ref={modalRef}>
-        <Form isMember={true} close={closeModal} />
+        <CreateMemberForm close={closeModal} />
       </Modal>
     </>
   );

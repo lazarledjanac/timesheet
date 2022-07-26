@@ -4,7 +4,7 @@ import {
   LetterButtonsContainer,
   Modal,
   Project,
-  Form,
+  CreateProjectForm,
 } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllProjects } from "../features/Projects";
@@ -17,8 +17,8 @@ function Projects() {
     (store) => store.projects
   );
   const modalRef = useRef();
+
   const [currentPage, setCurrentPage] = useState(1);
-  console.log(currentPage);
   const [term, setTerm] = useState(null);
   const [letter, setLetter] = useState(null);
   const [numberOfProjects, setNumberOfProjects] = useState(projectList.length);
@@ -101,7 +101,7 @@ function Projects() {
         }}
       />
       <Modal ref={modalRef}>
-        <Form isProject={true} close={closeModal} />
+        <CreateProjectForm close={closeModal} />
       </Modal>
     </>
   );
