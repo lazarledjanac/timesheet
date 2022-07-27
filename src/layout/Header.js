@@ -9,7 +9,7 @@ function Header() {
         <Link to="/timesheet" className="logo">
           <img src="assets/img/logo.png" alt="VegaITSourcing Timesheet" />
         </Link>
-        <ul className="user right">
+        {/* <ul className="user right">
           <li>
             <a>Lazar Ledjanac</a>
             <div className="invisible"></div>
@@ -30,7 +30,7 @@ function Header() {
           <li className="last">
             <a>Logout</a>
           </li>
-        </ul>
+        </ul> */}
         <nav>
           <ul className="menu">
             <li>

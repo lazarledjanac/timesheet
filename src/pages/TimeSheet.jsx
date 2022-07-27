@@ -70,12 +70,12 @@ export default function TimeSheet() {
       setFirstCalendarDay(firstCalendarDay.plus({ weeks: 5 }));
     }
   };
-  useEffect(() => {
-    navigate(`/timesheet/${now.monthLong}`);
-  }, []);
-  useEffect(() => {
-    navigate(`/timesheet/${currentMonth.monthLong}`);
-  }, [currentMonth]);
+  // useEffect(() => {
+  //   navigate(`/timesheet/${now.monthLong}`);
+  // }, []);
+  // useEffect(() => {
+  //   navigate(`/timesheet/${currentMonth.monthLong}`);
+  // }, [currentMonth]);
 
   return (
     <>
