@@ -13,8 +13,8 @@ export default function DaysListItem({
   const dispatch = useDispatch();
   const loggedUser = "Lazar Ledjanac";
 
-  const clientList = useSelector((state) => state.clients.value);
-  const projectList = useSelector((state) => state.projects.value);
+  const { clientList } = useSelector((state) => state.clients);
+  const { projectList } = useSelector((state) => state.projects);
 
   const [member, setMember] = useState(loggedUser);
   const [client, setClient] = useState("");

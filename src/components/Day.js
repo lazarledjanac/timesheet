@@ -16,16 +16,16 @@ export default function Day({ date }) {
     if (hours < 6) return "negative";
   }
   return (
-    <td className={addClass()}>
+    <td
+      className={addClass()}
+      onClick={() => {
+        navigate(`/days/${date.toISODate()}`);
+      }}
+    >
       <div className="date">
         <span>{date.toFormat("d")}.</span>
       </div>
-      <div
-        className="hours"
-        onClick={() => {
-          navigate(`/days/${date.toISODate()}`);
-        }}
-      >
+      <div className="hours">
         <a>Hours: {hours}</a>
       </div>
     </td>
