@@ -88,7 +88,7 @@ export default function TimeSheet() {
             className="prev"
             onClick={() => {
               setCurrentMonth(currentMonth.minus({ months: 1 }));
-              navigate(`/timesheet/${currentMonth.toFormat("LLLL yyyy")}`);
+              // navigate(`/timesheet/${currentMonth.toFormat("LLLL yyyy")}`);
               previousMonth();
             }}
           >
@@ -99,7 +99,7 @@ export default function TimeSheet() {
             className="next"
             onClick={() => {
               setCurrentMonth(currentMonth.plus({ months: 1 }));
-              navigate(`/timesheet/${currentMonth.toFormat("LLLL yyyy")}`);
+              // navigate(`/timesheet/${currentMonth.toFormat("LLLL yyyy")}`);
               nextMonth();
             }}
           >
