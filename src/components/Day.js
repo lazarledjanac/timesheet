@@ -31,4 +31,3 @@ export default function Day({ date }) {
     </td>
   );
 }
-// klase za day: "positive", "positive previous", "negative" i "disable" i bez klase ako nema sati
