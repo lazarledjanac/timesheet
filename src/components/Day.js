@@ -7,7 +7,7 @@ export default function Day({ date }) {
   const hours = 6;
   function addClass() {
     if (date > DateTime.now()) return "disable";
-    if (hours == 0) return "";
+    if (hours === 0) return "";
     if (hours >= 6 && date.toFormat("y L") < DateTime.now().toFormat("y L"))
       return "positive previous";
     if (hours >= 6) return "positive";

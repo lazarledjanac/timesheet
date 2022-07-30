@@ -20,3 +20,4 @@ export { default as Member } from "./Member";
 export { default as CreateProjectForm } from "./CreateProjectForm";
 export { default as CreateClientForm } from "./CreateClientForm";
 export { default as CreateMemberForm } from "./CreateMemberForm";
+export { default as SearchInput } from "./SearchInput";

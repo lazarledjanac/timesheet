@@ -5,6 +5,7 @@ import {
   Modal,
   CreateClientForm,
   Client,
+  SearchInput,
 } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllClients } from "../features/Clients";
@@ -19,7 +20,6 @@ function Clients() {
   const [currentPage, setCurrentPage] = useState(1);
   const [term, setTerm] = useState(null);
   const [letter, setLetter] = useState(null);
-  const [numberOfClients, setNumberOfClients] = useState(clientList.length);
 
   useEffect(() => {
     dispatch(
@@ -54,7 +54,6 @@ function Clients() {
         letter: letter,
       })
     );
-    console.log(clientList);
   }, [letter]);
 
   const openModal = () => {
@@ -73,20 +72,13 @@ function Clients() {
         <a className="link new-member-popup" onClick={openModal}>
           Create new client
         </a>
-        <div className="search-page">
-          <input
-            defaultValue=""
-            type="search"
-            name="search-clients"
-            className="in-search"
-            onChange={(e) => {
-              setTerm(e?.target?.value);
-              console.log(term);
-            }}
-          />
-        </div>
+        <SearchInput
+          term={term}
+          onChange={(e) => {
+            setTerm(e?.target?.value);
+          }}
+        />
       </div>
-
       <LetterButtonsContainer onSetLetter={(letter) => setLetter(letter)} />
       <div className="accordion-wrap projects">
         {filteredClients.map((client) => (
@@ -95,7 +87,7 @@ function Clients() {
       </div>
       <Pagination
         currentPage={currentPage}
-        totalCount={numberOfClients}
+        totalCount={clientList.length}
         pageSize={pageSize}
         onPageChange={(page) => {
           setCurrentPage(page);

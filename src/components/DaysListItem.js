@@ -27,7 +27,7 @@ export default function DaysListItem({
   const [disabled, setDisabled] = useState(true);
 
   const handleClientChange = (e) => {
-    if (e.target.value != "") {
+    if (e.target.value !== "") {
       setClientSelected(true);
     } else {
       setDisabled(true);
@@ -37,7 +37,7 @@ export default function DaysListItem({
     setClient(e.target.value);
   };
   const handleProjectChange = (e) => {
-    if (e.target.value != "") {
+    if (e.target.value !== "") {
       setProjectSelected(true);
     } else {
       setDisabled(true);
@@ -93,7 +93,7 @@ export default function DaysListItem({
           type="number"
           className="in-text xsmall"
           disabled={disabled}
-          defaultValue={time}
+          defaultValue={0}
           max={8}
           step={0.5}
           min="0"
@@ -130,12 +130,12 @@ export default function DaysListItem({
               }
               dispatch(
                 addReport({
-                  date: date,
-                  member: member,
-                  client: client,
-                  project: project,
-                  category: category,
-                  time: time,
+                  date,
+                  member,
+                  client,
+                  project,
+                  category,
+                  time,
                 })
               );
               alert("Report has been successfuly added.");

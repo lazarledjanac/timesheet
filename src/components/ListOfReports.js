@@ -3,7 +3,7 @@ import Report from "./Report";
 import { useSelector } from "react-redux";
 
 const ListOfReports = React.forwardRef((props, ref) => {
-  const reportList = useSelector((state) => state.reports.value);
+  const { filteredReports } = useSelector((state) => state.reports);
 
   return (
     <table className="default-table" ref={ref}>
@@ -16,7 +16,7 @@ const ListOfReports = React.forwardRef((props, ref) => {
           <th>Category</th>
           <th className="small">Time</th>
         </tr>
-        {reportList.map((report, index) => (
+        {filteredReports.map((report, index) => (
           <Report
             key={index}
             date={report.date}

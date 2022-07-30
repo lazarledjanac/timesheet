@@ -1,49 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ListOfReports from "../components/ListOfReports";
 import { DateTime } from "luxon";
 import { ExportCSV, PrintComponent, PDF, Dropdown } from "../components";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllReports, filterReports } from "../features/Reports";
+import {
+  getAllReports,
+  resetReports,
+  changeMember,
+  changeClient,
+  changeProject,
+  changeCategory,
+  changeEndDate,
+  changeStartDate,
+  sumTotalHours,
+} from "../features/Reports";
 
 function Reports() {
   const dispatch = useDispatch();
-  const { clientList } = useSelector((state) => state.clients);
-  const { projectList } = useSelector((state) => state.projects);
-  const { memberList } = useSelector((state) => state.members);
-  const reportList = useSelector((state) => state.reports.value);
-
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [member, setMember] = useState("");
-  const [client, setClient] = useState("");
-  const [project, setProject] = useState("");
-  const [category, setCategory] = useState("");
-  const [totalHours, setTotalHours] = useState();
-
-  function sumTotalHours() {
-    let hours = 0;
-    for (let i = 0; i < reportList.length; i++) {
-      hours += reportList[i].time;
-    }
-    setTotalHours(hours);
-  }
-  function reportsFilter(report) {
-    return (
-      (member == "" || report.member == member) &&
-      (client == "" || report.client == client) &&
-      (project == "" || report.project == project) &&
-      (category == "" || report.category == category) &&
-      (startDate == "" || DateTime.fromISO(report.date) >= startDate) &&
-      (endDate == "" || DateTime.fromISO(report.date) <= endDate)
-    );
-  }
-  function search() {
-    reportList.filter(reportsFilter);
-  }
+  const { filteredReports, totalHours } = useSelector((state) => state.reports);
 
   useEffect(() => {
-    sumTotalHours();
-  }, [reportList]);
+    dispatch(getAllReports());
+  }, []);
+  useEffect(() => {
+    dispatch(sumTotalHours());
+  }, [filteredReports]);
+
   return (
     <>
       <h2>
@@ -54,12 +36,14 @@ function Reports() {
           <ul className="form">
             <Dropdown
               label="Team Member:"
-              objects={memberList}
-              onChange={(e) => setMember(e.target.value)}
+              members
+              onChange={(e) => dispatch(changeMember(e.target.value))}
             />
             <li>
               <label>Category:</label>
-              <select onChange={(e) => setCategory(e.target.value)}>
+              <select
+                onChange={(e) => dispatch(changeCategory(e.target.value))}
+              >
                 <option value="">All</option>
                 <option>Front-End-Development</option>
                 <option>Web Design</option>
@@ -70,23 +54,26 @@ function Reports() {
           <ul className="form">
             <Dropdown
               label="Client:"
-              objects={clientList}
-              onChange={(e) => setClient(e.target.value)}
+              clients
+              onChange={(e) => dispatch(changeClient(e.target.value))}
             />
             <li>
               <label>Start date:</label>
               <input
+                value={null}
                 type="date"
                 className="in-text datepicker"
-                onChange={(e) => setStartDate(DateTime.fromISO(e.target.value))}
+                onChange={(e) =>
+                  dispatch(changeStartDate(DateTime.fromISO(e.target.value)))
+                }
               />
             </li>
           </ul>
           <ul className="form last">
             <Dropdown
               label="Project:"
-              objects={projectList}
-              onChange={(e) => setProject(e.target.value)}
+              projects
+              onChange={(e) => dispatch(changeProject(e.target.value))}
             />
 
             <li>
@@ -94,7 +81,9 @@ function Reports() {
               <input
                 type="date"
                 className="in-text datepicker"
-                onChange={(e) => setEndDate(DateTime.fromISO(e.target.value))}
+                onChange={(e) =>
+                  dispatch(changeEndDate(DateTime.fromISO(e.target.value)))
+                }
               />
             </li>
             <li>
@@ -102,10 +91,10 @@ function Reports() {
                 readOnly
                 type="reset"
                 className="btn orange right "
-                defaultValue="Reset"
+                value="Reset"
                 style={{ width: "90px", height: "28px" }}
                 onClick={() => {
-                  dispatch(getAllReports());
+                  dispatch(resetReports());
                 }}
               />
               <input
@@ -115,16 +104,7 @@ function Reports() {
                 value="Search"
                 style={{ width: "44px", height: "26px" }}
                 onClick={() => {
-                  dispatch(
-                    filterReports({
-                      member,
-                      client,
-                      project,
-                      category,
-                      startDate,
-                      endDate,
-                    })
-                  );
+                  dispatch(getAllReports());
                 }}
               />
             </li>

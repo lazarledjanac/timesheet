@@ -11,7 +11,6 @@ export default function Members() {
     (state) => state.members
   );
 
-  const [numberOfMembers, setNumberOfMembers] = useState(memberList.length);
   const [currentPage, setCurrentPage] = useState(1);
   const modalRef = useRef();
 
@@ -49,7 +48,7 @@ export default function Members() {
       <Pagination
         className="pagination"
         currentPage={currentPage}
-        totalCount={numberOfMembers}
+        totalCount={memberList.length}
         pageSize={pageSize}
         onPageChange={(page) => {
           setCurrentPage(page);
