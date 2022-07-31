@@ -35,8 +35,8 @@ function Reports() {
         <form>
           <ul className="form">
             <Dropdown
-              label="Team Member:"
-              members
+              list="members"
+              label="Team Member"
               onChange={(e) => dispatch(changeMember(e.target.value))}
             />
             <li>
@@ -53,8 +53,8 @@ function Reports() {
           </ul>
           <ul className="form">
             <Dropdown
-              label="Client:"
-              clients
+              list="clients"
+              label="Client"
               onChange={(e) => dispatch(changeClient(e.target.value))}
             />
             <li>
@@ -71,8 +71,8 @@ function Reports() {
           </ul>
           <ul className="form last">
             <Dropdown
-              label="Project:"
-              projects
+              list="projects"
+              label="Project"
               onChange={(e) => dispatch(changeProject(e.target.value))}
             />
 

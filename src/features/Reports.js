@@ -54,6 +54,7 @@ export const reportSlice = createSlice({
     },
     changeStartDate: (state, { payload }) => {
       state.startDate = payload;
+      console.log(state.startDate);
     },
     changeEndDate: (state, { payload }) => {
       state.endDate = payload;

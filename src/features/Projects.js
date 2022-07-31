@@ -16,6 +16,9 @@ export const projectSlice = createSlice({
       state.projectList.push(payload);
     },
     deleteProject: (state, { payload }) => {
+      state.filteredProjects = state.filteredProjects.filter(
+        (project) => project.id !== payload.id
+      );
       state.projectList = state.projectList.filter(
         (project) => project.id !== payload.id
       );

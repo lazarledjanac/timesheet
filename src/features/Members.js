@@ -15,6 +15,9 @@ export const memberSlice = createSlice({
       state.memberList.push(payload);
     },
     deleteMember: (state, { payload }) => {
+      state.paginatedMembers = state.paginatedMembers.filter(
+        (member) => member.id !== payload.id
+      );
       state.memberList = state.memberList.filter(
         (member) => member.id !== payload.id
       );

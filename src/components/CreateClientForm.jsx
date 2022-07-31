@@ -17,7 +17,6 @@ const CreateClientForm = ({ close }) => {
   } = useForm();
 
   const onClientSubmit = (data) => {
-    console.log(data);
     const { name, address, city, postalCode, country } = data;
     dispatch(
       addClient({

@@ -44,7 +44,7 @@ export default function TimeSheet() {
   const previousMonth = () => {
     if (firstCalendarDay.minus({ weeks: 1 }).daysInMonth === 28)
       setFirstCalendarDay(firstCalendarDay.minus({ weeks: 4 }));
-    else if (firstCalendarDay.toFormat("d") === 1)
+    else if (firstCalendarDay.toFormat("d") == 1)
       setFirstCalendarDay(firstCalendarDay.minus({ weeks: 5 }));
     else if (
       firstCalendarDay.startOf("months").toFormat("ccc") === "Sat" ||
