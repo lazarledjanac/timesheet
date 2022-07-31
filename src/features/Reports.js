@@ -56,8 +56,14 @@ export const reportSlice = createSlice({
       state.startDate = payload;
       console.log(state.startDate);
     },
+    clearStartDate: (state) => {
+      state.startDate = "";
+    },
     changeEndDate: (state, { payload }) => {
       state.endDate = payload;
+    },
+    clearEndDate: (state) => {
+      state.endDate = "";
     },
     sumTotalHours: (state) => {
       let hours = 0;
@@ -79,5 +85,7 @@ export const {
   changeEndDate,
   changeStartDate,
   resetReports,
+  clearStartDate,
+  clearEndDate,
 } = reportSlice.actions;
 export default reportSlice.reducer;

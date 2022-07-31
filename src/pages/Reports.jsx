@@ -13,6 +13,8 @@ import {
   changeEndDate,
   changeStartDate,
   sumTotalHours,
+  clearStartDate,
+  clearEndDate,
 } from "../features/Reports";
 
 function Reports() {
@@ -57,16 +59,24 @@ function Reports() {
               label="Client"
               onChange={(e) => dispatch(changeClient(e.target.value))}
             />
-            <li>
-              <label>Start date:</label>
+            <label>Start Date:</label>
+            <li style={{ display: "inline-flex" }}>
               <input
                 value={null}
                 type="date"
                 className="in-text datepicker"
+                onReset=""
                 onChange={(e) =>
                   dispatch(changeStartDate(DateTime.fromISO(e.target.value)))
                 }
               />
+              <button
+                onClick={() => {
+                  dispatch(clearStartDate());
+                }}
+              >
+                Clear
+              </button>
             </li>
           </ul>
           <ul className="form last">
@@ -76,8 +86,8 @@ function Reports() {
               onChange={(e) => dispatch(changeProject(e.target.value))}
             />
 
-            <li>
-              <label>End date:</label>
+            <label>End date:</label>
+            <li style={{ display: "inline-flex" }}>
               <input
                 type="date"
                 className="in-text datepicker"
@@ -85,6 +95,13 @@ function Reports() {
                   dispatch(changeEndDate(DateTime.fromISO(e.target.value)))
                 }
               />
+              <button
+                onClick={() => {
+                  dispatch(clearEndDate());
+                }}
+              >
+                Clear
+              </button>
             </li>
             <li>
               <input
