@@ -28,9 +28,9 @@ export const reportSlice = createSlice({
           (state.client === "" || report.client === state.client) &&
           (state.project === "" || report.project === state.project) &&
           (state.category === "" || report.category === state.category) &&
-          (state.startDate === null ||
+          (state.startDate == null ||
             DateTime.fromISO(report.date) >= state.startDate) &&
-          (state.endDate === null ||
+          (state.endDate == null ||
             DateTime.fromISO(report.date) <= state.endDate)
         );
       }

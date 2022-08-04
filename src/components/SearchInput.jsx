@@ -1,6 +1,10 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setTerm } from "../features/Projects";
 
-const SearchInput = ({ term, onChange }) => {
+const SearchInput = () => {
+  const dispatch = useDispatch();
+  const { term } = useSelector((store) => store.projects);
   return (
     <div className="search-page">
       <input
@@ -8,7 +12,9 @@ const SearchInput = ({ term, onChange }) => {
         type="search"
         name="search-clients"
         className="in-search"
-        onChange={onChange}
+        onChange={(e) => {
+          dispatch(setTerm(e?.target?.value));
+        }}
       />
     </div>
   );
