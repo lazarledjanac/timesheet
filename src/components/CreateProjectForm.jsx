@@ -50,6 +50,7 @@ const CreateProjectForm = ({ close }) => {
             <input
               type="text"
               className="in-text"
+              autoComplete="off"
               style={{ marginBottom: 15 }}
               {...register("name", {
                 required: true,
@@ -68,6 +69,7 @@ const CreateProjectForm = ({ close }) => {
             <input
               type="text"
               className="in-text"
+              autoComplete="off"
               style={{ marginBottom: 15 }}
               {...register("description")}
             />

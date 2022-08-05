@@ -49,6 +49,7 @@ const CreateClientForm = ({ close }) => {
           <input
             type="text"
             className="in-text"
+            autoComplete="off"
             style={{ marginBottom: 15 }}
             {...register("name", {
               required: true,
@@ -67,6 +68,7 @@ const CreateClientForm = ({ close }) => {
           <input
             type="text"
             className="in-text"
+            autoComplete="off"
             style={{ marginBottom: 15 }}
             {...register("address")}
           />
@@ -75,6 +77,7 @@ const CreateClientForm = ({ close }) => {
           <input
             type="text"
             className="in-text"
+            autoComplete="off"
             style={{ marginBottom: 15 }}
             {...register("city", { pattern: /[A-Za-z]/ })}
           />
@@ -86,6 +89,7 @@ const CreateClientForm = ({ close }) => {
           <input
             type="text"
             className="in-text"
+            autoComplete="off"
             style={{ marginBottom: 15 }}
             {...register("postalCode", {
               pattern: /[0-9]/,

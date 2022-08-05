@@ -5,6 +5,8 @@ import { membersMock } from "../mock/members.mock";
 const initialState = {
   memberList: membersMock,
   paginatedMembers: [],
+  currentPage: 1,
+  pageSize: 6,
 };
 
 export const memberSlice = createSlice({
@@ -30,16 +32,13 @@ export const memberSlice = createSlice({
           member.hoursPerWeek = hoursPerWeek;
           member.userName = userName;
           member.email = email;
-          //   member.status = action.payload.status;
-          //   member.role = action.payload.role;
         }
       });
     },
     getAllMembers: (state, { payload }) => {
-      const { currentPage, pageSize } = payload;
-      if (state.memberList.length > pageSize) {
-        const firstPageIndex = (currentPage - 1) * pageSize;
-        const lastPageIndex = firstPageIndex + pageSize;
+      if (state.memberList.length > state.pageSize) {
+        const firstPageIndex = (state.currentPage - 1) * state.pageSize;
+        const lastPageIndex = firstPageIndex + state.pageSize;
 
         state.paginatedMembers = state.memberList.slice(
           firstPageIndex,
@@ -47,8 +46,16 @@ export const memberSlice = createSlice({
         );
       }
     },
+    setCurrentPage: (state, { payload }) => {
+      state.currentPage = payload;
+    },
   },
 });
-export const { addMember, deleteMember, updateMember, getAllMembers } =
-  memberSlice.actions;
+export const {
+  addMember,
+  deleteMember,
+  updateMember,
+  getAllMembers,
+  setCurrentPage,
+} = memberSlice.actions;
 export default memberSlice.reducer;

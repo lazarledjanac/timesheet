@@ -2,10 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { clientsMock } from "../mock/clients.mock";
 
+let letters = [];
+for (let i = 97; i < 123; i++) {
+  letters.push({ id: i });
+}
+
 const initialState = {
   clientList: clientsMock,
   paginatedClients: [],
   filteredClients: [],
+  letter: null,
+  letters,
+  term: null,
+  currentPage: 1,
+  pageSize: 6,
 };
 
 export const clientSlice = createSlice({
@@ -35,31 +45,54 @@ export const clientSlice = createSlice({
         }
       });
     },
-    getAllClients: (state, { payload }) => {
-      const { currentPage, pageSize, term, letter } = payload;
-      if (state.clientList.length > pageSize) {
-        const firstPageIndex = (currentPage - 1) * pageSize;
-        const lastPageIndex = firstPageIndex + pageSize;
+    getAllClients: (state) => {
+      if (state.clientList.length > state.pageSize) {
+        const firstPageIndex = (state.currentPage - 1) * state.pageSize;
+        const lastPageIndex = firstPageIndex + state.pageSize;
 
         state.paginatedClients = state.clientList.slice(
           firstPageIndex,
           lastPageIndex
         );
       }
-      if (term) {
+      if (state.term) {
+        state.letter = null;
         state.filteredClients = state.clientList.filter(
-          (client) => client.name.toLowerCase().indexOf(term) !== -1
+          (client) => client.name.toLowerCase().indexOf(state.term) !== -1
         );
-      } else if (letter) {
+      } else if (state.letter) {
         state.filteredClients = state.clientList.filter((client) =>
-          client.name.toLowerCase().startsWith(letter)
+          client.name
+            .toLowerCase()
+            .startsWith(String.fromCharCode(state.letter))
         );
       } else {
         state.filteredClients = state.paginatedClients;
       }
     },
+    toggleActiveLetter: (state, { payload }) => {
+      state.term = "";
+      if (payload === state.letter) {
+        state.letter = null;
+      } else {
+        state.letter = payload;
+      }
+    },
+    setTerm: (state, { payload }) => {
+      state.term = payload;
+    },
+    setCurrentPage: (state, { payload }) => {
+      state.currentPage = payload;
+    },
   },
 });
-export const { addClient, deleteClient, updateClient, getAllClients } =
-  clientSlice.actions;
+export const {
+  addClient,
+  deleteClient,
+  updateClient,
+  getAllClients,
+  toggleActiveLetter,
+  setTerm,
+  setCurrentPage,
+} = clientSlice.actions;
 export default clientSlice.reducer;

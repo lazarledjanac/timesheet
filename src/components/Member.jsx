@@ -200,7 +200,7 @@ const Member = ({ id, key }) => {
               className="btn red"
               style={{ marginRight: 10 }}
               onClick={() => {
-                dispatch(deleteMember({ id: id }));
+                dispatch(deleteMember({ id }));
               }}
             >
               Delete

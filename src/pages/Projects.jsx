@@ -21,15 +21,16 @@ function Projects() {
     dispatch(getAllProjects());
   }, [currentPage, term, letter]);
 
-  const openModal = () => {
-    modalRef.current.openModal();
-  };
-
   const closeModal = () => {
     modalRef.current.close();
   };
 
+  const openModal = () => {
+    modalRef.current.openModal();
+  };
+
   let pagination;
+
   if (!term && !letter) {
     pagination = (
       <Pagination
@@ -47,9 +48,9 @@ function Projects() {
       <h2>
         <i className="ico projects"></i>Projects
       </h2>
-      <div className="grey-box-wrap reports">
-        <a className="link new-member-popup" onClick={openModal}>
-          Create new project
+      <div className="grey-box-wrap reports ico-member">
+        <a className="link new-member-popup test" onClick={openModal}>
+          <span>Create new project</span>
         </a>
         <SearchInput />
       </div>

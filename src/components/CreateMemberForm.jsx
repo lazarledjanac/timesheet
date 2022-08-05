@@ -46,6 +46,7 @@ const CreateMemberForm = ({ close }) => {
           <input
             type="text"
             className="in-text"
+            autoComplete="off"
             style={{ marginBottom: 10 }}
             {...register("name", {
               required: true,
@@ -63,6 +64,7 @@ const CreateMemberForm = ({ close }) => {
           <input
             type="text"
             className="in-text"
+            autoComplete="off"
             style={{ marginBottom: 10 }}
             {...register("hoursPerWeek", {
               maxLength: 2,
@@ -80,6 +82,7 @@ const CreateMemberForm = ({ close }) => {
           <input
             type="text"
             className="in-text"
+            autoComplete="off"
             style={{ marginBottom: 10 }}
             {...register("username", {
               required: true,
@@ -99,6 +102,7 @@ const CreateMemberForm = ({ close }) => {
           <input
             type="text"
             className="in-text"
+            autoComplete="off"
             style={{ marginBottom: 10 }}
             {...register("email", {
               required: true,

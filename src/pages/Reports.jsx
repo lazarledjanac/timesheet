@@ -19,7 +19,7 @@ import {
 
 function Reports() {
   const dispatch = useDispatch();
-  const { filteredReports, totalHours } = useSelector((state) => state.reports);
+  const { filteredReports, totalHours } = useSelector((store) => store.reports);
 
   useEffect(() => {
     dispatch(getAllReports());
@@ -62,10 +62,8 @@ function Reports() {
             <label>Start Date:</label>
             <li style={{ display: "inline-flex" }}>
               <input
-                value={null}
                 type="date"
                 className="in-text datepicker"
-                onReset=""
                 onChange={(e) =>
                   dispatch(changeStartDate(DateTime.fromISO(e.target.value)))
                 }

@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setTerm } from "../features/Projects";
+import { setTerm } from "../features/Clients";
 
-const ClientSearchInput = () => {
+const SearchInput = () => {
   const dispatch = useDispatch();
-  const { term } = useSelector((store) => store.projects);
+  const { term } = useSelector((store) => store.clients);
   return (
     <div className="search-page">
       <input
@@ -20,4 +20,4 @@ const ClientSearchInput = () => {
   );
 };
 
-export default ClientSearchInput;
+export default SearchInput;

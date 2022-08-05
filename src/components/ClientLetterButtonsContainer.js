@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleActiveLetter } from "../features/Projects";
+import { toggleActiveLetter } from "../features/Clients";
 
-function LetterButtonsContainer() {
+function ClientLetterButtonsContainer() {
   const dispatch = useDispatch();
-  const { letter, letters } = useSelector((state) => state.projects);
+  const { letter, letters } = useSelector((state) => state.clients);
 
   return (
     <div className="alpha">
@@ -26,4 +26,4 @@ function LetterButtonsContainer() {
   );
 }
 
-export default LetterButtonsContainer;
+export default ClientLetterButtonsContainer;

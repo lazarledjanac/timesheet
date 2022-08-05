@@ -57,13 +57,13 @@ export const reportSlice = createSlice({
       console.log(state.startDate);
     },
     clearStartDate: (state) => {
-      state.startDate = "";
+      state.startDate = null;
     },
     changeEndDate: (state, { payload }) => {
       state.endDate = payload;
     },
     clearEndDate: (state) => {
-      state.endDate = "";
+      state.endDate = null;
     },
     sumTotalHours: (state) => {
       let hours = 0;

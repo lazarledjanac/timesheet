@@ -1,17 +1,14 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { Modal, Pagination, Member, CreateMemberForm } from "../components";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllMembers } from "../features/Members";
-
-let pageSize = 4;
+import { getAllMembers, setCurrentPage } from "../features/Members";
 
 export default function Members() {
   const dispatch = useDispatch();
-  const { memberList, paginatedMembers } = useSelector(
-    (state) => state.members
+  const { memberList, paginatedMembers, currentPage, pageSize } = useSelector(
+    (store) => store.members
   );
 
-  const [currentPage, setCurrentPage] = useState(1);
   const modalRef = useRef();
 
   const openModal = () => {
@@ -22,12 +19,7 @@ export default function Members() {
     modalRef.current.close();
   };
   useEffect(() => {
-    dispatch(
-      getAllMembers({
-        currentPage: currentPage,
-        pageSize: pageSize,
-      })
-    );
+    dispatch(getAllMembers());
   }, [currentPage]);
 
   return (
@@ -51,7 +43,7 @@ export default function Members() {
         totalCount={memberList.length}
         pageSize={pageSize}
         onPageChange={(page) => {
-          setCurrentPage(page);
+          dispatch(setCurrentPage(page));
         }}
       />
       <Modal ref={modalRef}>
