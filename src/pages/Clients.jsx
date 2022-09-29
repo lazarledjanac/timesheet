@@ -19,7 +19,7 @@ function Clients() {
 
   useEffect(() => {
     dispatch(getAllClients());
-  }, [currentPage, term, letter]);
+  }, [currentPage, term, letter, clientList.length]);
 
   const openModal = () => {
     modalRef.current.openModal();

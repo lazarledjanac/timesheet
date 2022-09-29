@@ -19,7 +19,7 @@ function Projects() {
 
   useEffect(() => {
     dispatch(getAllProjects());
-  }, [currentPage, term, letter]);
+  }, [currentPage, term, letter, projectList.length]);
 
   const closeModal = () => {
     modalRef.current.close();

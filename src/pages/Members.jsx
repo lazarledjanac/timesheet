@@ -20,7 +20,7 @@ export default function Members() {
   };
   useEffect(() => {
     dispatch(getAllMembers());
-  }, [currentPage]);
+  }, [currentPage, memberList.length]);
 
   return (
     <>
